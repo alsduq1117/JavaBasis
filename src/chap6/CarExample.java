@@ -4,14 +4,18 @@ public class CarExample {
     public static void main(String[] args) {
         Car myCar = new Car("검점",3000);
 
-        System.out.println("제작회사:" + myCar.company);
-        System.out.println("모델명:" + myCar.model);
-        System.out.println("색깔:" + myCar.color);
-        System.out.println("최고속도:" + myCar.maxSpeed);
-        System.out.println("현재속도:" + myCar.speed);
+        myCar.setGas(5);
 
+        boolean gasState = myCar.isLeftGas();
+        if(gasState){
+            System.out.println("출발합니다");
+            myCar.run();
+        }
 
-        myCar.speed = 60;
-        System.out.println("수정된 속도:" + myCar.speed);
+        if(myCar.isLeftGas()){
+            System.out.println("gas를 주입할 필요가 없습니다.");
+        } else {
+            System.out.println("gas를 주입하세요.");
+        }
     }
 }
